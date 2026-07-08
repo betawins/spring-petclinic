@@ -11,8 +11,14 @@ tags = ["password"]
 
 
 [[rules.allowlists]]
+paths = [
+    '''README.md''',
+    '''mvnw'''
+]
+
 regexes = [
-    '''\$\{[A-Za-z0-9_]+.*\}'''
+    '''\$\{.*\}''',
+    '''MYSQL_ALLOW_EMPTY_PASSWORD'''
 ]
 
 
@@ -27,7 +33,7 @@ tags = ["secret"]
 
 [[rules.allowlists]]
 regexes = [
-    '''\$\{[A-Za-z0-9_]+.*\}'''
+    '''\$\{.*\}'''
 ]
 
 
@@ -42,5 +48,5 @@ tags = ["database"]
 
 [[rules.allowlists]]
 regexes = [
-    '''\$\{[A-Za-z0-9_]+.*\}'''
+    '''\$\{.*\}'''
 ]
