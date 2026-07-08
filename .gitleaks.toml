@@ -3,26 +3,26 @@ title = "Custom Company Secret Rules"
 
 [[rules]]
 id = "generic-password"
-description = "Detect generic passwords"
+description = "Detect hardcoded generic passwords"
 
-regex = '''(?i)(password|passwd|pwd)\s*[:=]\s*['"]?[A-Za-z0-9@#$%^&*()_+\-]{4,}'''
+regex = '''(?i)(password|passwd|pwd)\s*[:=]\s*['"]?(?!\$\{)[A-Za-z0-9@#$%^&*()_+\-]{4,}'''
 
 tags = ["password"]
 
 
 [[rules]]
 id = "generic-secret"
-description = "Detect generic secrets"
+description = "Detect hardcoded secrets and tokens"
 
-regex = '''(?i)(secret|token|apikey|api_key|access_key)\s*[:=]\s*['"]?[A-Za-z0-9_\-@#$%^&+=]{5,}'''
+regex = '''(?i)(secret|token|apikey|api_key|access_key)\s*[:=]\s*['"]?(?!\$\{)[A-Za-z0-9_\-@#$%^&+=/]{5,}'''
 
 tags = ["secret"]
 
 
 [[rules]]
 id = "database-credentials"
-description = "Detect DB credentials"
+description = "Detect hardcoded database credentials"
 
-regex = '''(?i)(db.username|db.password|spring.datasource.password)\s*[:=]\s*.+'''
+regex = '''(?i)(db.username|db.password|spring.datasource.password)\s*[:=]\s*(?!\$\{).+'''
 
 tags = ["database"]
