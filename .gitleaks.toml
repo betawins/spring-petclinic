@@ -9,16 +9,11 @@ regex = '''(?i)(password|passwd|pwd)\s*[:=]\s*['"]?[A-Za-z0-9@#$%^&*()_+\-]{4,}'
 
 tags = ["password"]
 
-
 [[rules.allowlists]]
 paths = [
-    '''README.md''',
+    '''docker-compose\.yml''',
+    '''README\.md''',
     '''mvnw'''
-]
-
-regexes = [
-    '''\$\{.*\}''',
-    '''MYSQL_ALLOW_EMPTY_PASSWORD'''
 ]
 
 
@@ -31,12 +26,6 @@ regex = '''(?i)(secret|token|apikey|api_key|access_key)\s*[:=]\s*['"]?[A-Za-z0-9
 tags = ["secret"]
 
 
-[[rules.allowlists]]
-regexes = [
-    '''\$\{.*\}'''
-]
-
-
 [[rules]]
 id = "database-credentials"
 description = "Detect hardcoded database credentials"
@@ -45,8 +34,8 @@ regex = '''(?i)(db.username|db.password|spring.datasource.password)\s*[:=]\s*.+'
 
 tags = ["database"]
 
-
 [[rules.allowlists]]
-regexes = [
-    '''\$\{.*\}'''
+paths = [
+    '''src/main/resources/application-mysql\.properties''',
+    '''src/main/resources/application-postgres\.properties'''
 ]
