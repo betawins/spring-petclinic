@@ -1,0 +1,28 @@
+title = "Custom Company Secret Rules"
+
+
+[[rules]]
+id = "generic-password"
+description = "Detect generic passwords"
+
+regex = '''(?i)(password|passwd|pwd)\s*[:=]\s*['"]?[A-Za-z0-9@#$%^&*()_+\-]{4,}'''
+
+tags = ["password"]
+
+
+[[rules]]
+id = "generic-secret"
+description = "Detect generic secrets"
+
+regex = '''(?i)(secret|token|apikey|api_key|access_key)\s*[:=]\s*['"]?[A-Za-z0-9_\-@#$%^&+=]{5,}'''
+
+tags = ["secret"]
+
+
+[[rules]]
+id = "database-credentials"
+description = "Detect DB credentials"
+
+regex = '''(?i)(db.username|db.password|spring.datasource.password)\s*[:=]\s*.+'''
+
+tags = ["database"]
